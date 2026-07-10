@@ -1,3 +1,92 @@
+# Automated Inscription Mint Script for EVM-Compatible Chains
+
+English | [中文](#兼容evm链的铭文自动化mint脚本)
+
+## 🛠 Instructions
+
+### Step 1: Install Node.js first
+
+Go to the Node.js official website and download the version that matches your computer's operating system.
+
+```bash
+https://nodejs.org/en
+```
+
+Then check the installed version to confirm the installation succeeded.
+
+```bash
+node -v
+npm -v
+```
+
+If you prefer to use yarn, install yarn.
+```bash
+npm i -g yarn
+```
+
+### Step 2: Download the script source code
+First, use git clone to clone the source code to your local machine.
+```bash
+git clone https://github.com/yourairdrop/evmOrdinals
+
+cd evmOrdinals
+```
+If you are on a Windows machine without git installed, go to the website below to download and install the git software first.
+```bash
+https://gitforwindows.org
+```
+
+### Step 3: Edit the config.js configuration file in the current directory
+```javascript
+const config = {
+    // How many you want to mint — set the number here. It's recommended not to exceed 50 per run, otherwise it may fail to get on-chain.
+    repeatCount: 1,
+
+    // How many times to multiply on top of the current gas
+    increaseGas: 1.2,
+
+    // Your wallet's private key
+    privateKey: "",
+
+    // Inscription json data (replace with the inscription json-format data you want to mint)
+    tokenJson: 'data:,{"p":"fair-20","op":"mint","tick":"fair","amt":"1000"}',
+
+    // RPC endpoint (any EVM-compatible chain works). Use the node address of whichever chain you are minting on.
+    // eth =>  https://mainnet.infura.io/v3
+    // arb => https://arb1.arbitrum.io/rpc
+    // polygon => https://polygon-rpc.com
+    // op => https://mainnet.optimism.io
+    // linea => https://mainnet.infura.io/v3
+    // scroll => https://rpc.scroll.io
+    // zks => https://mainnet.era.zksync.io
+    rpcUrl: "https://arb1.arbitrum.io/rpc"
+}
+```
+
+### Step 4: Install dependencies
+```bash
+npm i
+```
+or
+```bash
+yarn install
+```
+
+### Step 5: Run the Mint script
+```shell
+node index.js
+```
+or
+```shell
+yarn start
+```
+or
+```shell
+npm run start
+```
+
+---
+
 # 兼容EVM链的铭文自动化Mint脚本
 
 ## 🛠 使用说明
